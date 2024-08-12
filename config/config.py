@@ -105,10 +105,10 @@ GIT_TOKEN = getenv(
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/AnonymousX888"
+    "SUPPORT_CHANNEL", "https://t.me/BestieVirtual"
 )  # Example:- https://t.me/AnonymousX888
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/LogUbotX"
+    "SUPPORT_GROUP", "https://t.me/+8veNR2baDgMzZjY1"
 )  # Example:- https://t.me/LogUbotX
 
 
@@ -212,7 +212,7 @@ START_IMG_URL = getenv(
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://telegra.ph/file/91533956c91d0fd7c9f20.jpg",
+    "https://telegra.ph/file/2b8abb517734a3ab03981.jpg",
 )
 
 PLAYLIST_IMG_URL = getenv(
