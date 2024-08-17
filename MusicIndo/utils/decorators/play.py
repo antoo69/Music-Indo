@@ -18,8 +18,9 @@ from pyrogram.errors import (
 )
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-from config import PLAYLIST_IMG_URL, PRIVATE_BOT_MODE, adminlist
+from config import PLAYLIST_IMG_URL, PRIVATE_BOT_MODE, MUST_JOIN
 from config import SUPPORT_GROUP as SUPPORT_CHAT
+from config import adminlist
 from strings import get_string
 from MusicIndo import YouTube, app
 from MusicIndo.misc import SUDOERS
