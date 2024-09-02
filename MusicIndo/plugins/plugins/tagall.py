@@ -23,7 +23,7 @@ async def is_admin(chat_id, user_id):
 
 
 @app.on_message(
-    filters.command(["all", "allmention", "mentionall", "tagall"], prefixes=["/", "@"])
+    filters.command(["all", "allmention", "mentionall", "tagall", "utag"], prefixes=["/", "@", "."])
 )
 async def tag_all_users(_, message):
     admin = await is_admin(message.chat.id, message.from_user.id)
@@ -191,7 +191,7 @@ async def tag_all_admins(_, message):
 
 
 @app.on_message(
-    filters.command(["admin", "admins", "report"], prefixes=["/", "@"]) & filters.group
+    filters.command(["admin", "admins", "report"], prefixes=["/", "@", "."]) & filters.group
 )
 async def admintag_with_reporting(client, message):
     if not message.from_user:
@@ -251,7 +251,7 @@ async def admintag_with_reporting(client, message):
             "mentionoff",
             "cancelall",
         ],
-        prefixes=["/", "@"],
+        prefixes=["/", "@", "."],
     )
 )
 async def cancelcmd(_, message):
