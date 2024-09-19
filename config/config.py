@@ -28,8 +28,6 @@ API_HASH = getenv("API_HASH")
 ## Get it from @Botfather in Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
 
-MUST_JOIN = getenv("MUST_JOIN", "AnonymousX888")
-
 # Database to save your chats and stats... Get MongoDB:-  https://telegra.ph/How-To-get-Mongodb-URI-04-06
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
@@ -105,10 +103,10 @@ GIT_TOKEN = getenv(
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/BestieVirtual"
+    "SUPPORT_CHANNEL", "https://t.me/Galerifsyrl"
 )  # Example:- https://t.me/AnonymousX888
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/+8veNR2baDgMzZjY1"
+    "SUPPORT_GROUP", "https://t.me/store_claytolol"
 )  # Example:- https://t.me/LogUbotX
 
 
@@ -207,12 +205,12 @@ autoclean = []
 
 START_IMG_URL = getenv(
     "START_IMG_URL",
-    "https://te.legra.ph/file/4ec5ae4381dffb039b4ef.jpg",
+    "https://itzpire.com/file/f456b5759fb1.jpg",
 )
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://telegra.ph/file/2b8abb517734a3ab03981.jpg",
+    "https://itzpire.com/file/f456b5759fb1.jpg",
 )
 
 PLAYLIST_IMG_URL = getenv(
