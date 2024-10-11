@@ -71,12 +71,12 @@ SONG_DOWNLOAD_DURATION = int(
 
 
 # You'll need a Private Group ID for this.
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002163044186"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002079962899"))
 
 
 # Your User ID.
 OWNER_ID = list(
-    map(int, getenv("OWNER_ID", "7013332761").split())
+    map(int, getenv("OWNER_ID", "1506963557").split())
 )  # Input type must be interger
 
 
@@ -90,7 +90,7 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 # For customized or modified Repository
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/antoo69/Music-IndoF.git",
+    "https://github.com/antoo69/Music-IndoK.git",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "master")
 
@@ -131,7 +131,7 @@ TELEGRAM_DOWNLOAD_EDIT_SLEEP = int(getenv("TELEGRAM_EDIT_SLEEP", "5"))
 
 
 # Your Github Repo.. Will be shown on /start Command
-GITHUB_REPO = getenv("GITHUB_REPO", "https://github.com/antoo69/Music-IndoB.git")
+GITHUB_REPO = getenv("GITHUB_REPO", "https://t.me/+DpJfrWsNYtNlMzQ1")
 
 
 # Spotify Client.. Get it from https://developer.spotify.com/dashboard
@@ -146,10 +146,10 @@ VIDEO_STREAM_LIMIT = int(getenv("VIDEO_STREAM_LIMIT", "999"))
 
 
 # Maximum Limit Allowed for users to save playlists on bot's server
-SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "50"))
+SERVER_PLAYLIST_LIMIT = int(getenv("SERVER_PLAYLIST_LIMIT", "100"))
 
 # MaximuM limit for fetching playlist's track from youtube, spotify, apple links.
-PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "50"))
+PLAYLIST_FETCH_LIMIT = int(getenv("PLAYLIST_FETCH_LIMIT", "100"))
 
 
 # Telegram audio  and video file size limit
