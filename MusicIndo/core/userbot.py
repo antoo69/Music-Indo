@@ -57,7 +57,7 @@ class Userbot(Client):
         if config.STRING1:
             await self.one.start()
             try:
-                await self.one.join_chat("gbtnfer")
+                await self.one.join_chat("IRLferdi")
                 await self.one.join_chat("BestieVirtual")
             except:
                 pass
@@ -82,7 +82,7 @@ class Userbot(Client):
         if config.STRING2:
             await self.two.start()
             try:
-                await self.two.join_chat("gbtanfer")
+                await self.two.join_chat("IRLferdi")
                 await self.two.join_chat("BestieVirtual")
             except:
                 pass
@@ -107,7 +107,7 @@ class Userbot(Client):
         if config.STRING3:
             await self.three.start()
             try:
-                await self.three.join_chat("gbtanfer")
+                await self.three.join_chat("IRLferi")
                 await self.three.join_chat("BestieVirtual")
             except:
                 pass
@@ -157,7 +157,7 @@ class Userbot(Client):
         if config.STRING5:
             await self.five.start()
             try:
-                await self.five.join_chat("gbtanfer")
+                await self.five.join_chat("IRLferdi")
                 await self.five.join_chat("BestieVirtual")
             except:
                 pass
