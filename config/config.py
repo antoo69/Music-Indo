@@ -71,7 +71,7 @@ SONG_DOWNLOAD_DURATION = int(
 
 
 # You'll need a Private Group ID for this.
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-1002079962899"))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-100"))
 
 
 # Your User ID.
@@ -103,10 +103,10 @@ GIT_TOKEN = getenv(
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/Galerifsyrl"
+    "SUPPORT_CHANNEL", "https://t.me/store_claytolol"
 )  # Example:- https://t.me/AnonymousX888
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/BestieVirtual"
+    "SUPPORT_GROUP", "https://t.me/+i1G7_HtkORllOWRl"
 )  # Example:- https://t.me/LogUbotX
 
 
@@ -131,7 +131,7 @@ TELEGRAM_DOWNLOAD_EDIT_SLEEP = int(getenv("TELEGRAM_EDIT_SLEEP", "5"))
 
 
 # Your Github Repo.. Will be shown on /start Command
-GITHUB_REPO = getenv("GITHUB_REPO", "https://t.me/+DpJfrWsNYtNlMzQ1")
+GITHUB_REPO = getenv("GITHUB_REPO", "https://t.me/Galerifsyrl")
 
 
 # Spotify Client.. Get it from https://developer.spotify.com/dashboard
@@ -205,22 +205,22 @@ autoclean = []
 
 START_IMG_URL = getenv(
     "START_IMG_URL",
-    "https://telegra.ph/file/a23e9cf302c1da667bd89.jpg",
+    "https://itzpire.com/file/0d5eb26d5de4.jpg",
 )
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://envs.sh/0a0.jpg",
+    "https://itzpire.com/file/0d5eb26d5de4.jpg",
 )
 
 PLAYLIST_IMG_URL = getenv(
     "PLAYLIST_IMG_URL",
-    "https://envs.sh/0aS.jpg",
+    "https://itzpire.com/file/0d5eb26d5de4.jpg",
 )
 
 GLOBAL_IMG_URL = getenv(
     "GLOBAL_IMG_URL",
-    "https://envs.sh/0aW.jpg",
+    "https://itzpire.com/file/0d5eb26d5de4.jpg",
 )
 
 STATS_IMG_URL = getenv(
@@ -230,7 +230,7 @@ STATS_IMG_URL = getenv(
 
 TELEGRAM_AUDIO_URL = getenv(
     "TELEGRAM_AUDIO_URL",
-    "https://envs.sh/0aW.jpg",
+    "https://itzpire.com/file/0d5eb26d5de4.jpg",
 )
 
 TELEGRAM_VIDEO_URL = getenv(
