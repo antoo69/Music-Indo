@@ -103,10 +103,10 @@ GIT_TOKEN = getenv(
 
 # Only  Links formats are  accepted for this Var value.
 SUPPORT_CHANNEL = getenv(
-    "SUPPORT_CHANNEL", "https://t.me/store_claytolol"
+    "SUPPORT_CHANNEL", "https://t.me/Galerifsyrl"
 )  # Example:- https://t.me/AnonymousX888
 SUPPORT_GROUP = getenv(
-    "SUPPORT_GROUP", "https://t.me/+i1G7_HtkORllOWRl"
+    "SUPPORT_GROUP", "https://t.me/BestieVirtual"
 )  # Example:- https://t.me/LogUbotX
 
 
@@ -205,27 +205,27 @@ autoclean = []
 
 START_IMG_URL = getenv(
     "START_IMG_URL",
-    "https://itzpire.com/file/0d5eb26d5de4.jpg",
+    "https://itzpire.com/file/727adc1c7569.jpg",
 )
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://itzpire.com/file/0d5eb26d5de4.jpg",
+    "https://itzpire.com/file/22212e27b4f1.jpg",
 )
 
 PLAYLIST_IMG_URL = getenv(
     "PLAYLIST_IMG_URL",
-    "https://itzpire.com/file/0d5eb26d5de4.jpg",
+    "https://itzpire.com/file/6736ffc0cd6e.jpg",
 )
 
 GLOBAL_IMG_URL = getenv(
     "GLOBAL_IMG_URL",
-    "https://itzpire.com/file/0d5eb26d5de4.jpg",
+    "https://itzpire.com/file/6736ffc0cd6e.jpg",
 )
 
 STATS_IMG_URL = getenv(
     "STATS_IMG_URL",
-    "https://envs.sh/0aW.jpg",
+    "https://itzpire.com/file/aa26b374f4f5.jpg",
 )
 
 TELEGRAM_AUDIO_URL = getenv(
