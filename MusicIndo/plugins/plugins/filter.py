@@ -27,16 +27,16 @@ from config import BANNED_USERS
 
 
 __MODULE__ = "Filters"
-__HELP__ = """/filters To Get All The Filters In The Chat.
-/filter [FILTER_NAME] To Save A Filter(reply to a message).
+__HELP__ = """/fr To Get All The Filters In The Chat.
+/fr [FILTER_NAME] To Save A Filter(reply to a message).
 
 Supported filter types are Text, Animation, Photo, Document, Video, video notes, Audio, Voice.
 
 To use more words in a filter use.
-`/filter Hey_there` To filter "Hey there".
+`/fr Hey_there` To filter "Hey there".
 
-/stop [FILTER_NAME] To Stop A Filter.
-/stopall To delete all the filters in a chat (permanently).
+/rm [FILTER_NAME] To Stop A Filter.
+/rmall To delete all the filters in a chat (permanently).
 
 You can use markdown or html to save text too.
 
@@ -44,7 +44,7 @@ Checkout /markdownhelp to know more about formattings and other syntax.
 """
 
 
-@app.on_message(filters.command("filter") & ~filters.private & ~BANNED_USERS)
+@app.on_message(filters.command("fr") & ~filters.private & ~BANNED_USERS)
 @adminsOnly("can_change_info")
 async def save_filters(_, message):
     try:
@@ -259,7 +259,7 @@ async def filters_re(_, message):
             return  # NOTE: Avoid filter spam
 
 
-@app.on_message(filters.command("stopall") & ~filters.private & ~BANNED_USERS)
+@app.on_message(filters.command("rmall") & ~filters.private & ~BANNED_USERS)
 @adminsOnly("can_change_info")
 async def stop_all(_, message):
     _filters = await get_filters_names(message.chat.id)
