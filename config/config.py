@@ -72,6 +72,7 @@ SONG_DOWNLOAD_DURATION = int(
 
 # You'll need a Private Group ID for this.
 LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", "-100"))
+LOG = True
 
 
 # Your User ID.
@@ -205,37 +206,37 @@ autoclean = []
 
 START_IMG_URL = getenv(
     "START_IMG_URL",
-    "https://itzpire.com/file/0d5eb26d5de4.jpg",
+    "https://itzpire.com/file/cf34bace1607.jpg",
 )
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL",
-    "https://itzpire.com/file/0d5eb26d5de4.jpg",
+    "https://itzpire.com/file/cf34bace1607.jpg",
 )
 
 PLAYLIST_IMG_URL = getenv(
     "PLAYLIST_IMG_URL",
-    "https://itzpire.com/file/0d5eb26d5de4.jpg",
+    "https://itzpire.com/file/cf34bace1607.jpg",
 )
 
 GLOBAL_IMG_URL = getenv(
     "GLOBAL_IMG_URL",
-    "https://itzpire.com/file/0d5eb26d5de4.jpg",
+    "https://itzpire.com/file/cf34bace1607.jpg",
 )
 
 STATS_IMG_URL = getenv(
     "STATS_IMG_URL",
-    "https://itzpire.com/file/aa26b374f4f5.jpg",
+    "https://itzpire.com/file/788e7abe5088.jpg",
 )
 
 TELEGRAM_AUDIO_URL = getenv(
     "TELEGRAM_AUDIO_URL",
-    "https://itzpire.com/file/0d5eb26d5de4.jpg",
+    "https://itzpire.com/file/788e7abe5088.jpg",
 )
 
 TELEGRAM_VIDEO_URL = getenv(
     "TELEGRAM_VIDEO_URL",
-    "https://itzpire.com/file/0d5eb26d5de4.jpg",
+    "https://itzpire.com/file/788e7abe5088.jpg",
 )
 
 STREAM_IMG_URL = getenv(
@@ -250,7 +251,7 @@ SOUNCLOUD_IMG_URL = getenv(
 
 YOUTUBE_IMG_URL = getenv(
     "YOUTUBE_IMG_URL",
-    "https://envs.sh/0aW.jpg",
+    "https://itzpire.com/file/788e7abe5088.jpg",
 )
 
 SPOTIFY_ARTIST_IMG_URL = getenv(
