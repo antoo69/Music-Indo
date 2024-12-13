@@ -1,13 +1,3 @@
-#
-# Copyright (C) 2024 by AnonymousX888@Github, < https://github.com/AnonymousX888 >.
-#
-# This file is part of < https://github.com/hakutakaid/Music-Indo.git > project,
-# and is released under the MIT License.
-# Please see < https://github.com/hakutakaid/Music-Indo.git/blob/master/LICENSE >
-#
-# All rights reserved.
-#
-
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
@@ -16,26 +6,39 @@ from MusicIndo import app
 from MusicIndo.utils.database import delete_served_chat, get_assistant, is_on_off
 
 
+# Fungsi untuk memeriksa apakah log aktif
+async def is_on_off(log_status):
+    return log_status
+
+
 @app.on_message(filters.new_chat_members)
 async def join_watcher(_, message):
     try:
+        # Pastikan LOG diaktifkan
         if not await is_on_off(LOG):
+            print("LOG is turned off. Skipping join_watcher...")
             return
+        print("New chat member detected.")
+
         userbot = await get_assistant(message.chat.id)
+        if not userbot:
+            print("Userbot not found for this chat.")
+            return
+
         chat = message.chat
         for members in message.new_chat_members:
             if members.id == app.id:
+                print("Bot added to a new group.")
+
                 count = await app.get_chat_members_count(chat.id)
-                username = (
-                    message.chat.username if message.chat.username else "ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
-                )
+                username = message.chat.username if message.chat.username else "Private Chat"
                 msg = (
-                    f"**ᴍᴜsɪᴄ ʙᴏᴛ ᴀᴅᴅᴇᴅ ɪɴ ᴀ ɴᴇᴡ ɢʀᴏᴜᴘ #New_Group**\n\n"
-                    f"**ᴄʜᴀᴛ ɴᴀᴍᴇ:** {message.chat.title}\n"
-                    f"**ᴄʜᴀᴛ ɪᴅ:** {message.chat.id}\n"
-                    f"**ᴄʜᴀᴛ ᴜsᴇʀɴᴀᴍᴇ:** @{username}\n"
-                    f"**ᴄʜᴀᴛ ᴍᴇᴍʙᴇʀ ᴄᴏᴜɴᴛ:** {count}\n"
-                    f"**ᴀᴅᴅᴇᴅ ʙʏ:** {message.from_user.mention}"
+                    f"**Music Bot Added in a New Group #New_Group**\n\n"
+                    f"**Chat Name:** {message.chat.title}\n"
+                    f"**Chat ID:** {message.chat.id}\n"
+                    f"**Chat Username:** @{username}\n"
+                    f"**Chat Member Count:** {count}\n"
+                    f"**Added By:** {message.from_user.mention}"
                 )
                 await app.send_message(
                     LOG_GROUP_ID,
@@ -44,38 +47,51 @@ async def join_watcher(_, message):
                         [
                             [
                                 InlineKeyboardButton(
-                                    f"ᴀᴅᴅᴇᴅ ʙʏ",
+                                    "Added By",
                                     url=f"tg://openmessage?user_id={message.from_user.id}",
                                 )
                             ]
                         ]
                     ),
                 )
+                print("Log message sent to LOG_GROUP_ID.")
                 await userbot.join_chat(f"{username}")
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error in join_watcher: {e}")
 
 
 @app.on_message(filters.left_chat_member)
 async def on_left_chat_member(_, message: Message):
     try:
+        # Pastikan LOG diaktifkan
         if not await is_on_off(LOG):
+            print("LOG is turned off. Skipping on_left_chat_member...")
             return
+        print("A member left the chat.")
+
         userbot = await get_assistant(message.chat.id)
+        if not userbot:
+            print("Userbot not found for this chat.")
+            return
 
         left_chat_member = message.left_chat_member
         if left_chat_member and left_chat_member.id == app.id:
-            remove_by = (
-                message.from_user.mention if message.from_user else "𝐔ɴᴋɴᴏᴡɴ 𝐔sᴇʀ"
-            )
+            print("Bot removed from the group.")
+
+            remove_by = message.from_user.mention if message.from_user else "Unknown User"
             title = message.chat.title
-            username = (
-                f"@{message.chat.username}" if message.chat.username else "ᴘʀɪᴠᴀᴛᴇ ᴄʜᴀᴛ"
-            )
+            username = f"@{message.chat.username}" if message.chat.username else "Private Chat"
             chat_id = message.chat.id
-            left = f"✫ <b><u>#Left_group</u></b> ✫\nᴄʜᴀᴛ ɴᴀᴍᴇ : {title}\nᴄʜᴀᴛ ɪᴅ : {chat_id}\n\nʀᴇᴍᴏᴠᴇᴅ ʙʏ : {remove_by}"
+            left = (
+                f"✫ <b><u>#Left_group</u></b> ✫\n"
+                f"Chat Name: {title}\n"
+                f"Chat ID: {chat_id}\n\n"
+                f"Removed By: {remove_by}"
+            )
             await app.send_message(LOG_GROUP_ID, text=left)
+            print("Log message sent to LOG_GROUP_ID.")
+
             await delete_served_chat(chat_id)
             await userbot.leave_chat(chat_id)
     except Exception as e:
-        print(f"Error: {e}")
+        print(f"Error in on_left_chat_member: {e}")
