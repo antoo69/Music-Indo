@@ -3,19 +3,26 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 from config import LOG_GROUP_ID, LOG
 from MusicIndo import app
-from MusicIndo.utils.database import delete_served_chat, get_assistant, is_on_off
+from MusicIndo.utils.database import delete_served_chat, get_assistant
 
+# Fungsi untuk memeriksa apakah log diaktifkan
+async def is_on_off(log_status):
+    return bool(log_status)  # Pastikan hanya mengembalikan nilai boolean
 
 @app.on_message(filters.new_chat_members)
 async def join_watcher(_, message: Message):
     try:
-        # Pastikan LOG diaktifkan
+        # Debug LOG status
+        print(f"LOG status: {LOG}")
+
+        # Periksa apakah logging diaktifkan
         if not await is_on_off(LOG):
             print("LOG is turned off. Skipping join_watcher...")
             return
 
         print("New chat member detected.")
 
+        # Ambil userbot untuk chat saat ini
         userbot = await get_assistant(message.chat.id)
         if not userbot:
             print("Userbot not found for this chat.")
@@ -53,22 +60,27 @@ async def join_watcher(_, message: Message):
                     ),
                 )
                 print("Log message sent to LOG_GROUP_ID.")
+
+                # Jika username valid, bergabung dengan chat
                 if username != "Private Chat":
                     await userbot.join_chat(f"{username}")
     except Exception as e:
         print(f"Error in join_watcher: {e}")
 
-
 @app.on_message(filters.left_chat_member)
 async def on_left_chat_member(_, message: Message):
     try:
-        # Pastikan LOG diaktifkan
+        # Debug LOG status
+        print(f"LOG status: {LOG}")
+
+        # Periksa apakah logging diaktifkan
         if not await is_on_off(LOG):
             print("LOG is turned off. Skipping on_left_chat_member...")
             return
 
         print("A member left the chat.")
 
+        # Ambil userbot untuk chat saat ini
         userbot = await get_assistant(message.chat.id)
         if not userbot:
             print("Userbot not found for this chat.")
@@ -91,6 +103,7 @@ async def on_left_chat_member(_, message: Message):
             await app.send_message(LOG_GROUP_ID, text=left)
             print("Log message sent to LOG_GROUP_ID.")
 
+            # Hapus data dan keluar dari chat
             await delete_served_chat(chat_id)
             await userbot.leave_chat(chat_id)
     except Exception as e:
