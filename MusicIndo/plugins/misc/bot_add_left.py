@@ -4,6 +4,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from config import LOG_GROUP_ID, LOG
 from MusicIndo import app
 from MusicIndo.utils.database import delete_served_chat, get_assistant
+from html import escape
 
 async def is_on_off(log_status):
     return bool(log_status)
@@ -87,16 +88,16 @@ async def on_left_chat_member(_, message: Message):
                 if message.from_user
                 else "Unknown User"
             )
-            title = message.chat.title
+            title = escape(message.chat.title)  # Escape untuk karakter khusus
             username = f"@{message.chat.username}" if message.chat.username else "Private Chat"
             chat_id = message.chat.id
             msg = (
-                f"✫ <b><u>#Bot_Removed</u></b> ✫\\n"
-                f"**Chat Name:** {title}\\n"
-                f"**Chat ID:** {chat_id}\\n"
+                f"✫ <b><u>#Bot_Removed</u></b> ✫\n"
+                f"**Chat Name:** {title}\n"
+                f"**Chat ID:** {chat_id}\n"
                 f"**Removed By:** {removed_by}"
             )
-            await app.send_message(LOG_GROUP_ID, text=msg, parse_mode="html")
+            await app.send_message(LOG_GROUP_ID, text=msg, parse_mode="html")  # Safe untuk HTML
             print("Log message sent to LOG_GROUP_ID.")
 
             await delete_served_chat(chat_id)
