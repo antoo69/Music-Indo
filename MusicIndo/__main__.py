@@ -15,7 +15,7 @@ from MusicIndo import HELPABLE, LOGGER, app, userbot
 from MusicIndo.core.call import Yukki
 from MusicIndo.plugins import ALL_MODULES
 from MusicIndo.utils.database import get_banned_users, get_gbanned
-
+from config import LOG
 
 async def init():
     if (
