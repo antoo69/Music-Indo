@@ -32,20 +32,23 @@ async def join_watcher(_, message: Message):
                     if message.from_user
                     else "Unknown User"
                 )
-                button_url = (
-                    f"tg://user?id={message.from_user.id}"
-                    if message.from_user and message.from_user.id
-                    else "#"
-                )
+
+                # Validasi URL dengan fallback jika user.id None
+                if message.from_user and message.from_user.id:
+                    button_url = f"tg://user?id={message.from_user.id}"
+                else:
+                    button_url = "#"  # Gunakan URL placeholder
+
                 msg = (
-                    f"**Music Bot Added in a New Group #New_Group**\\n\\n"
-                    f"**Chat Name:** {message.chat.title}\\n"
-                    f"**Chat ID:** {message.chat.id}\\n"
-                    f"**Chat Username:** @{username}\\n"
-                    f"**Chat Member Count:** {count}\\n"
+                    f"**Music Bot Added in a New Group #New_Group**\n\n"
+                    f"**Chat Name:** {message.chat.title}\n"
+                    f"**Chat ID:** {message.chat.id}\n"
+                    f"**Chat Username:** @{username}\n"
+                    f"**Chat Member Count:** {count}\n"
                     f"**Added By:** {added_by}"
                 )
 
+                # Kirim pesan log dengan tombol
                 await app.send_message(
                     LOG_GROUP_ID,
                     text=msg,
@@ -55,6 +58,7 @@ async def join_watcher(_, message: Message):
                 )
                 print("Log message sent to LOG_GROUP_ID.")
 
+                # Bot bergabung ke grup jika memiliki username publik
                 if username != "Private Chat":
                     await userbot.join_chat(f"{username}")
     except Exception as e:
