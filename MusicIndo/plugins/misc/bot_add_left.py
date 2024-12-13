@@ -65,39 +65,36 @@ async def join_watcher(_, message: Message):
     except Exception as e:
         print(f"Error in join_watcher: {e}")
 
+
 @app.on_message(filters.left_chat_member)
 async def on_left_chat_member(_, message: Message):
     try:
+        # Pastikan LOG diaktifkan
         if not await is_on_off(LOG):
             print("LOG is turned off. Skipping on_left_chat_member...")
             return
-
         print("A member left the chat.")
+
         userbot = await get_assistant(message.chat.id)
         if not userbot:
             print("Userbot not found for this chat.")
             return
 
         left_chat_member = message.left_chat_member
-
-        # Handle if the bot is removed
         if left_chat_member and left_chat_member.id == app.id:
             print("Bot removed from the group.")
-            removed_by = (
-                message.from_user.mention
-                if message.from_user
-                else "Unknown User"
-            )
-            title = escape(message.chat.title)  # Escape untuk karakter khusus
+
+            remove_by = message.from_user.mention if message.from_user else "Unknown User"
+            title = message.chat.title
             username = f"@{message.chat.username}" if message.chat.username else "Private Chat"
             chat_id = message.chat.id
-            msg = (
-                f"✫ <b><u>#Bot_Removed</u></b> ✫\n"
-                f"**Chat Name:** {title}\n"
-                f"**Chat ID:** {chat_id}\n"
-                f"**Removed By:** {removed_by}"
+            left = (
+                f"✫ <b><u>#Left_group</u></b> ✫\n"
+                f"Chat Name: {title}\n"
+                f"Chat ID: {chat_id}\n\n"
+                f"Removed By: {remove_by}"
             )
-            await app.send_message(LOG_GROUP_ID, text=msg, parse_mode="html")  # Safe untuk HTML
+            await app.send_message(LOG_GROUP_ID, text=left)
             print("Log message sent to LOG_GROUP_ID.")
 
             await delete_served_chat(chat_id)
