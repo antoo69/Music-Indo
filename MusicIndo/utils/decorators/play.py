@@ -67,6 +67,7 @@ def PlayWrapper(command):
                     ]
                 )
                 return await message.reply_text(_["force_sub"].format(message.from_user.mention), reply_markup=kontol)
+        
         if await is_maintenance() is False:
             if message.from_user.id not in SUDOERS:
                 return await message.reply_text(
