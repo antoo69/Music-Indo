@@ -29,6 +29,8 @@ from MusicIndo.plugins.utils.permissions import adminsOnly
 
 
 async def handle_new_member(member, chat):
+    if member is None or not hasattr(member, "id"):
+        return  # Jika member None atau tidak memiliki atribut id, keluar
 
     try:
         if member.id in SUDOERS:
@@ -45,10 +47,8 @@ async def handle_new_member(member, chat):
         if member.is_bot:
             return
         return await send_welcome_message(chat, member.id)
-
     except ChatAdminRequired:
         return
-
 
 @app.on_chat_member_updated(filters.group, group=6)
 @capture_err
@@ -60,10 +60,13 @@ async def welcome(_, user: ChatMemberUpdated):
     ):
         return
 
-    member = user.new_chat_member.user if user.new_chat_member else user.from_user
+    member = user.new_chat_member.user if user.new_chat_member else None
     chat = user.chat
-    return await handle_new_member(member, chat)
 
+    if member is None:  # Jika member tidak ditemukan
+        return
+
+    return await handle_new_member(member, chat)
 
 async def send_welcome_message(chat: Chat, user_id: int, delete: bool = False):
     welcome, raw_text, file_id = await get_welcome(chat.id)
