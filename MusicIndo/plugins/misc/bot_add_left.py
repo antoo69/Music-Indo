@@ -40,12 +40,14 @@ async def join_watcher(_, message: Message):
                 else:
                     button_url = "#"  # Gunakan URL placeholder
 
+                chat_username = f"@{message.chat.username}" if message.chat.username else "no username"
+
                 msg = (
                     f"**Music Bot Added in a New Group #New_Group**\n\n"
-                    f"**Chat Name:** {message.chat.title}\n"
+                    f"**Chat Name:** {message.chat.title}\n"  # Nama grup langsung dari chat.title
                     f"**Chat ID:** {message.chat.id}\n"
-                    f"**Chat Username:** @{username}\n"
-                    f"**Chat Member Count:** {count}\n"
+                    f"**Chat Username:** {chat_username}\n"
+                    f"**Chat Member Count:** {message.chat.members_count}\n"
                     f"**Added By:** {added_by}"
                 )
 
